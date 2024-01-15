@@ -5,9 +5,13 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, children, disabled, type = "button", ...props }, ref) => {
+  (
+    { className, onClick, children, disabled, type = "button", ...props },
+    ref
+  ) => {
     return (
       <button
+        onClick={onClick}
         className={cn(
           `
           w-auto 
