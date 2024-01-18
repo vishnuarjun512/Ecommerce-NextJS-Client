@@ -18,7 +18,6 @@ const Productcard: React.FC<productCardProps> = ({ item }) => {
   const previewMOdal = usePreviewModal();
   const cart = useCart();
 
-  console.log(item);
   const handleClick = () => {
     router.push(`/product/${item?._id}`);
   };
@@ -39,13 +38,17 @@ const Productcard: React.FC<productCardProps> = ({ item }) => {
       className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4"
     >
       {/* Images and Actions */}
-      <div className="aspect-square rounded-xl bg-gray-100 relative">
-        <Image
+      <div
+        style={{ backgroundImage: `url(${item.images?.[0].url})` }}
+        className="aspect-square object-contain bg-center bg-cover rounded-xl bg-gray-100 relative"
+      >
+        {/* <Image
           src={item.images?.[0]?.url}
           height={200}
           width={200}
+          className="object-cover object-center"
           alt="Product Image"
-        />
+        /> */}
         <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-4">
           <div className="flex gap-x-3 justify-end">
             <IconButton onClick={onPreview} icon={<ExpandIcon size={15} />} />

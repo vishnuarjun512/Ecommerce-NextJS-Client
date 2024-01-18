@@ -8,6 +8,7 @@ const getProduct = async (productId: string): Promise<Product> => {
   const res = await fetch(completeUrl, {
     method: "GET",
   });
+
   const data = await res.json();
 
   return data;

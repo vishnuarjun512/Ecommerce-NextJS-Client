@@ -5,12 +5,18 @@ import Currency from "./ui/Currency";
 
 import { ShoppingCart } from "lucide-react";
 import Button from "./ui/Button";
+import useCart from "@/hooks/useCart";
 
 interface InfoProps {
   data: Product;
 }
 
 const Info: React.FC<InfoProps> = ({ data }) => {
+  const cart = useCart();
+
+  const addToCart = () => {
+    cart.addItem(data);
+  };
   return (
     <div>
       <h1 className="text-4xl font-bold text-gray-900 whitespace-nowrap">
@@ -33,7 +39,10 @@ const Info: React.FC<InfoProps> = ({ data }) => {
         </div>
       </div>
       <div className="flex items-center gap-x-4">
-        <Button className="flex whitespace-nowrap gap-1 items-center">
+        <Button
+          onClick={addToCart}
+          className="flex whitespace-nowrap gap-1 items-center"
+        >
           Add to cart
           <ShoppingCart />
         </Button>

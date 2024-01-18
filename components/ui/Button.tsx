@@ -6,7 +6,15 @@ export interface ButtonProps
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, onClick, children, disabled, type = "button", ...props },
+    {
+      className,
+      onClick,
+
+      children,
+      disabled,
+      type = "button",
+      ...props
+    },
     ref
   ) => {
     return (
@@ -30,6 +38,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         ref={ref}
+        disabled={disabled}
       >
         {children}
       </button>
