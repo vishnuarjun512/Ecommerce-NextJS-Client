@@ -6,7 +6,7 @@ import Container from "@/components/ui/Container";
 import React from "react";
 
 const HomePage = async () => {
-  const billboard = await getBillboard("65a5568bab3e08a39d673f77");
+  const billboard = await getBillboard("65a9589a07d5ee1c3dc2b5b1");
   const products = await getProducts({ isFeatured: true });
 
   return (
